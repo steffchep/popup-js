@@ -1,0 +1,72 @@
+#popup-veil {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.3);
+}
+.popup {
+    font-weight: bold;
+    font-size: larger;
+    position: absolute;
+    width: 100%;
+    top: 5em;
+    bottom: auto;
+}
+.popup > div {
+    max-width: 300px;
+    margin:auto;
+    background: white;
+    text-align: center;
+}
+.popup-title {
+    font-weight: bold;
+    background: #bf5a00;
+    color: white;
+    padding: 10px;
+}
+.popup-content {
+    font-weight: normal;
+    padding: 10px;
+    line-height: 1.3em;
+}
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.popup-buttons button {
+    font-size:larger;
+    font-weight: bold;
+    background: #666;
+    color: white;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
+    flex-grow:0;
+    flex-shrink: 0;
+    margin: 5px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+.popup-buttons button:active {
+    box-shadow: none;
+}
+.popup-buttons button:hover, .popup-buttons button:focus {
+    opacity: 0.8;
+}
+#popup-yes {
+    background: darkgreen;
+    border-color: darkgreen;
+}
+#popup-no {
+    background: darkred;
+    border-color: darkred;
+}
+@media (max-width: 480px) {
+    .popup {
+        top: auto;
+        bottom: 5em;
+    }
+}
