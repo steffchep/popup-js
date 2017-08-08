@@ -61,14 +61,16 @@ define(function() {
     }
     
     function registerEscapeKey(method) {
-        document.onkeydown = function(e) {
+        function escapeHandler(e) {
             if (e.key === "Escape") {
                 removePopup();
+                document.removeEventListener("keydown", escapeHandler);
                 if (typeof method === 'function') {
                     method(e);
                 }
             }
-        };
+        }
+        document.addEventListener("keydown", escapeHandler);
     }
     
     function confirm(title, message, onYes, onNo) {
