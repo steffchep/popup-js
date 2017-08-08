@@ -19,7 +19,7 @@ define(function() {
         '  </div>' +
         '</div>';
 
-    function stripEvilTags(html) {
+    function dealWithEvilTags(html) {
         var evilTags = ["script", "embed", "object", "iframe", "frame", "img", "image", "canvas", "picture", "video", "audio"];
         var i, strippedHtml = html;
         for (i = 0; i < evilTags.length; i += 1) {
@@ -29,8 +29,8 @@ define(function() {
     }
     
     function createHtml(template, title, message) {
-        var msg = stripEvilTags(message);
-        var ttl = stripEvilTags(title);
+        var msg = dealWithEvilTags(message);
+        var ttl = dealWithEvilTags(title);
         var innerHTML = template.replace("{title}", ttl);
         innerHTML = innerHTML.replace("{message}", msg);
         return innerHTML;
@@ -79,7 +79,6 @@ define(function() {
     }
 
     function alert(title, message, onOk) {
-        console.log(message);
         addPopup(alertTemplate, title, message);
         registerClickEvent('popup-veil', onOk);
         registerEscapeKey(onOk);
