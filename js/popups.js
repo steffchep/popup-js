@@ -61,7 +61,7 @@ define(function() {
     }
     
     function registerEscapeKey(method) {
-        document.onkeypress = function(e) {
+        document.onkeydown = function(e) {
             if (e.key === "Escape") {
                 removePopup();
                 if (typeof method === 'function') {
