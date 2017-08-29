@@ -77,7 +77,7 @@ define(function() {
     function confirm(title, message, onYes, onNo) {
         addPopup(confirmTemplate, title, message);
         registerClickEvent('popup-yes', onYes);
-        registerClickEvent('popup-veil', onNo);
+        registerClickEvent('popup-no', onNo);
         registerEscapeKey(onNo);
     }
 
