@@ -38,6 +38,7 @@ define(function() {
 
     function removePopup() {
         var removeMe = document.getElementById("popup-veil");
+        document.removeEventListener("keydown", escapeHandler);
         document.querySelector("body").removeChild(removeMe);
     }
 
@@ -59,17 +60,17 @@ define(function() {
             }
         };
     }
-    
-    function registerEscapeKey(method) {
-        function escapeHandler(e) {
-            if (e.key === "Escape") {
-                removePopup();
-                document.removeEventListener("keydown", escapeHandler);
-                if (typeof method === 'function') {
-                    method(e);
-                }
+
+    function escapeHandler(e) {
+        if (e.key === "Escape") {
+            removePopup();
+            if (typeof method === 'function') {
+                method(e);
             }
         }
+    }
+
+    function registerEscapeKey(method) {
         document.addEventListener("keydown", escapeHandler);
     }
     
