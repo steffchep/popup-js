@@ -61,7 +61,7 @@ define(function() {
         };
     }
 
-    function escapeHandler(e) {
+    function escapeHandler(e, method) {
         if (e.key === "Escape") {
             removePopup();
             if (typeof method === 'function') {
@@ -71,7 +71,7 @@ define(function() {
     }
 
     function registerEscapeKey(method) {
-        document.addEventListener("keydown", escapeHandler);
+        document.addEventListener("keydown", escapeHandler, method);
     }
     
     function confirm(title, message, onYes, onNo) {
